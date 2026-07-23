@@ -42,16 +42,16 @@ def download_single_or_playlist():
     download_type = choose_download_type()
     if choice == 'S':
         video_url = input("Enter the YouTube video URL: ")
-        output_path = input("Enter the output path (default: 'downloads'): ").strip() or 'downloads'
+        output_path = input("Enter the output path (default: '/home/vigisbig/PD Contents/Music'): ").strip() or '/home/vigisbig/PD Contents/Music'
         download_video(video_url, output_path, download_type)
     elif choice == 'P':
         playlist_url = input("Enter the YouTube playlist URL: ")
-        output_path = input("Enter the output path (default: 'downloads'): ").strip() or 'downloads'
+        output_path = input("Enter the output path (default: '/home/vigisbig/PD Contents/Music'): ").strip() or '/home/vigisbig/PD Contents/Music'
         download_playlist(playlist_url, output_path, download_type)
     else:
         print("Invalid choice. Please enter 'S' or 'P'.")
 
-def download_playlist(playlist_url, output_path='downloads', download_type='V'):
+def download_playlist(playlist_url, output_path='/home/vigisbig/PD Contents/Music', download_type='V'):
     try:
         # Create output directory if it doesn't exist
         os.makedirs(output_path, exist_ok=True)
@@ -63,7 +63,7 @@ def download_playlist(playlist_url, output_path='downloads', download_type='V'):
     except Exception as e:
         print(f"Error downloading playlist: {e}")
 
-def download_video(video_url, output_path='downloads', download_type='V'):
+def download_video(video_url, output_path='/home/vigisbig/PD Contents/Music', download_type='V'):
     try:
         # Create output directory if it doesn't exist
         os.makedirs(output_path, exist_ok=True)
